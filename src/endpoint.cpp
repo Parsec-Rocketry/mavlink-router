@@ -799,7 +799,7 @@ bool UartEndpoint::setup(UartEndpointConfig conf)
 int UartEndpoint::set_speed(speed_t baudrate)
 {
     struct termios2 tc;
-
+/*
     if (fd < 0) {
         return -1;
     }
@@ -809,13 +809,13 @@ int UartEndpoint::set_speed(speed_t baudrate)
         log_error("UART [%d]%s: Could not get termios2 (%m)", fd, _name.c_str());
         return -1;
     }
-
+*/
     /* speed is configured by c_[io]speed */
     tc.c_cflag &= ~CBAUD;
     tc.c_cflag |= BOTHER;
     tc.c_ispeed = baudrate;
     tc.c_ospeed = baudrate;
-
+/*
     if (ioctl(fd, TCSETS2, &tc) == -1) {
         log_error("Could not set terminal attributes (%m)");
         return -1;
@@ -827,14 +827,14 @@ int UartEndpoint::set_speed(speed_t baudrate)
         log_error("UART [%d]%s: Could not flush terminal (%m)", fd, _name.c_str());
         return -1;
     }
-
+    */
     return 0;
 }
 
 int UartEndpoint::set_flow_control(bool enabled)
 {
     struct termios2 tc;
-
+/*
     if (fd < 0) {
         return -1;
     }
@@ -857,7 +857,7 @@ int UartEndpoint::set_flow_control(bool enabled)
     }
 
     log_info("UART [%d]%s: flowcontrol = %s", fd, _name.c_str(), enabled ? "enabled" : "disabled");
-
+*/
     return 0;
 }
 
