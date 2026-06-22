@@ -880,7 +880,7 @@ bool UartEndpoint::open(const char *path)
 
     if (ioctl(fd, TCGETS2, &tc) == -1) {
         log_error("Could not get termios2 on %s (%m)", path);
-        goto fail;
+        //goto fail;
     }
 
     tc.c_iflag &= ~(IGNBRK | BRKINT | ICRNL | INLCR | PARMRK | INPCK | ISTRIP | IXON);
