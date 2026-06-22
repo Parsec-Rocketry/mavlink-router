@@ -907,7 +907,7 @@ bool UartEndpoint::open(const char *path)
 
     if (ioctl(fd, TCSETS2, &tc) == -1) {
         log_error("Could not set terminal attributes on %s (%m)", path);
-        goto fail;
+        //goto fail;
     }
 
     // For Linux, set high speed polling at the chip
