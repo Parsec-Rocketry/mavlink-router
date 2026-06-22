@@ -873,7 +873,7 @@ bool UartEndpoint::open(const char *path)
 
     if (reset_uart(fd) < 0) {
         log_error("Could not reset uart on %s", path);
-        goto fail;
+        //goto fail;
     }
 
     bzero(&tc, sizeof(tc));
