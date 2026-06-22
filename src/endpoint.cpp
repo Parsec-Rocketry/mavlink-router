@@ -922,7 +922,7 @@ bool UartEndpoint::open(const char *path)
         int result = ioctl(fd, TIOCGSERIAL, &serial_ctl);
         if (result < 0) {
             log_warning("Error while trying to read serial port configuration on %s: %m", path);
-            goto set_latency_failed;
+            //goto set_latency_failed;
         }
 
         serial_ctl.flags |= ASYNC_LOW_LATENCY;
@@ -938,7 +938,7 @@ bool UartEndpoint::open(const char *path)
 set_latency_failed:
     if (ioctl(fd, TCFLSH, TCIOFLUSH) == -1) {
         log_error("Could not flush terminal on %s (%m)", path);
-        goto fail;
+        //goto fail;
     }
 
     log_info("Opened UART [%d]%s: %s", fd, _name.c_str(), path);
